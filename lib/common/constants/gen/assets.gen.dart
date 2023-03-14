@@ -14,14 +14,22 @@ import 'package:flutter/services.dart';
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  /// File path: assets/images/arrow_right.svg
+  SvgGenImage get arrowRight =>
+      const SvgGenImage('assets/images/arrow_right.svg');
+
   /// File path: assets/images/female.svg
   SvgGenImage get female => const SvgGenImage('assets/images/female.svg');
+
+  /// File path: assets/images/icons8-right-arrow.gif
+  AssetGenImage get icons8RightArrow =>
+      const AssetGenImage('assets/images/icons8-right-arrow.gif');
 
   /// File path: assets/images/male.svg
   SvgGenImage get male => const SvgGenImage('assets/images/male.svg');
 
   /// List of all assets
-  List<SvgGenImage> get values => [female, male];
+  List<dynamic> get values => [arrowRight, female, icons8RightArrow, male];
 }
 
 class Assets {

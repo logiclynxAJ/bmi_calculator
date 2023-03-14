@@ -1,14 +1,13 @@
 import 'dart:developer';
 
-import 'package:bmi_calculator/common/constants/colors.dart';
+import 'package:bmi_calculator/common/constants/gen/assets.gen.dart';
+import 'package:bmi_calculator/common/router.dart';
 import 'package:bmi_calculator/common/utils.dart';
 import 'package:bmi_calculator/common/widgets/bmi_chart.dart';
-import 'package:bmi_calculator/common/widgets/generic_card.dart';
 import 'package:davinci/core/davinci_capture.dart';
 import 'package:davinci/core/davinci_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:gauge_indicator/gauge_indicator.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nanoid/nanoid.dart';
 
@@ -81,7 +80,40 @@ class BMIResults extends StatelessWidget {
                         border: Border.all(color: Colors.grey.shade300),
                         borderRadius: BorderRadius.circular(12),
                       ),
-                      child: Text(state.bmiMessage),
+                      child: Column(
+                        children: [
+                          Text(state.bmiMessage),
+                          const SizedBox(height: 24),
+                          Align(
+                            alignment: Alignment.centerRight,
+                            child: ElevatedButton(
+                              onPressed: () {
+                                context.push(Routes.details);
+                              },
+                              style: ElevatedButton.styleFrom(
+                                fixedSize: Size(constraints.maxWidth / 1.9, 55),
+                              ),
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  const Text('Full Details'),
+                                  const Spacer(),
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 12),
+                                    child: Assets.images.arrowRight.svg(
+                                      width: 48,
+                                      // ignore: deprecated_member_use_from_same_package
+                                      color: Colors.white,
+                                      fit: BoxFit.cover,
+                                      alignment: Alignment.centerRight,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
                     ),
                     const Spacer(),
                     Row(

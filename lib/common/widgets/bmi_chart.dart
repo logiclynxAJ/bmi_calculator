@@ -70,7 +70,7 @@ class BmiChart extends StatelessWidget {
                 size: 36,
               ),
             ),
-            duration: const Duration(seconds: 1),
+            duration: Duration.zero,
             builder: (context, child, value) {
               return RadialGaugeLabel(
                 style: textTheme.headlineLarge?.copyWith(
