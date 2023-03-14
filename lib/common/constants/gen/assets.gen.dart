@@ -18,6 +18,10 @@ class $AssetsImagesGen {
   SvgGenImage get arrowRight =>
       const SvgGenImage('assets/images/arrow_right.svg');
 
+  /// File path: assets/images/bmi-section.jpg
+  AssetGenImage get bmiSection =>
+      const AssetGenImage('assets/images/bmi-section.jpg');
+
   /// File path: assets/images/female.svg
   SvgGenImage get female => const SvgGenImage('assets/images/female.svg');
 
@@ -29,7 +33,8 @@ class $AssetsImagesGen {
   SvgGenImage get male => const SvgGenImage('assets/images/male.svg');
 
   /// List of all assets
-  List<dynamic> get values => [arrowRight, female, icons8RightArrow, male];
+  List<dynamic> get values =>
+      [arrowRight, bmiSection, female, icons8RightArrow, male];
 }
 
 class Assets {

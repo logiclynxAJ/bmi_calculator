@@ -1,6 +1,7 @@
 import 'dart:typed_data';
 import 'dart:ui' as ui;
 
+import 'package:bmi_calculator/common/constants/gen/assets.gen.dart';
 import 'package:bmi_calculator/common/router.dart';
 import 'package:bmi_calculator/common/types.dart';
 import 'package:flutter/foundation.dart';
@@ -104,13 +105,11 @@ class Details extends StatelessWidget {
           child: Column(
             children: [
               Container(
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: NetworkImage(
-                      "https://www.diabetes.co.uk/wp-content/uploads/2022/09/bmi-section.jpg",
-                    ),
+                    image: Assets.images.bmiSection.provider(),
                   ),
-                  borderRadius: BorderRadius.all(Radius.circular(20)),
+                  borderRadius: const BorderRadius.all(Radius.circular(20)),
                 ),
                 height: 250,
               ),
