@@ -59,6 +59,32 @@ class BmiState extends Equatable {
     // calculate BMI
     double bmi = weightInKgs / (heightMeters * heightMeters);
 
+    if (bmi > 30) return 30;
+
     return bmi;
+  }
+
+  String get bmiMessage {
+    if (bmi < 18.5) {
+      return "Your BMI is $bmi, which is considered underweight. This may put you at risk for health problems, such as weakened immune system, anemia, and osteoporosis. You may need to gain weight to improve your health. Please consult a doctor for guidance.";
+    } else if (bmi >= 18.5 && bmi < 25) {
+      return "Your BMI is $bmi, which is considered normal. This range is associated with a lower risk of chronic diseases, such as heart disease and diabetes. Keep up your healthy habits such as eating a balanced diet and exercising regularly!";
+    } else if (bmi >= 25 && bmi < 30) {
+      return "Your BMI is $bmi, which is considered overweight. This may put you at risk for health problems, such as high blood pressure, high cholesterol, and type 2 diabetes. You may need to lose weight to improve your health. Please consult a doctor for guidance.";
+    } else {
+      return "Your BMI is $bmi, which is considered obese. This may put you at risk for serious health problems, such as heart disease, stroke, and some cancers. You may need to lose weight and consult a doctor for guidance on improving your health.";
+    }
+  }
+
+  String get bmiStatus {
+    if (bmi < 18.5) {
+      return "Underweight";
+    } else if (bmi >= 18.5 && bmi < 25) {
+      return "Healthy";
+    } else if (bmi >= 25 && bmi < 30) {
+      return "Overweight";
+    } else {
+      return "Obese";
+    }
   }
 }

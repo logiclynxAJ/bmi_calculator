@@ -67,3 +67,31 @@ double convertLbsToKgs(double lbs) {
 extension EnumType on Enum {
   String get type => describeEnumType(this);
 }
+
+List<Color> generateColorList(Color baseColor, {int length = 10}) {
+  // Create a list to store the shades of the base color
+  List<Color> colorList = [];
+
+  // Extract the RGB components of the base color
+  int red = baseColor.red;
+  int green = baseColor.green;
+  int blue = baseColor.blue;
+
+  // Generate 10 shades of the base color
+  for (int i = 1; i <= length + 1; i++) {
+    // Calculate the shade factor
+    double factor = i / length;
+
+    // Calculate the new RGB values based on the shade factor
+    int newRed = (red * factor).round();
+    int newGreen = (green * factor).round();
+    int newBlue = (blue * factor).round();
+
+    // Create the new color and add it to the list
+    Color newColor = Color.fromARGB(255, newRed, newGreen, newBlue);
+    colorList.add(newColor);
+  }
+
+  // Return the list of shades
+  return colorList;
+}
