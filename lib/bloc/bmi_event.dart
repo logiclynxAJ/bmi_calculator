@@ -42,3 +42,9 @@ class UpdateAge extends BmiEvent {
 
   const UpdateAge(this.age);
 }
+
+class UpdateGlobalKey extends BmiEvent {
+  final GlobalKey<State<StatefulWidget>>? key;
+
+  const UpdateGlobalKey(this.key);
+}

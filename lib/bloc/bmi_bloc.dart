@@ -1,6 +1,8 @@
+import 'dart:async';
 import 'package:bmi_calculator/common/types.dart';
 import 'package:bmi_calculator/common/utils.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'bmi_event.dart';
@@ -16,6 +18,11 @@ class BmiBloc extends Bloc<BmiEvent, BmiState> {
     on<UpdateHeight>(_updateHeight);
     on<UpdateWeight>(_updateWeight);
     on<UpdateAge>(_updateAge);
+    on<UpdateGlobalKey>(_updateGlobalKey);
+  }
+
+  void _updateGlobalKey(UpdateGlobalKey event, StateEmitter emit) {
+    emit(state.copyWith(key: event.key));
   }
 
   void _updateGender(UpdateGender event, StateEmitter emit) {

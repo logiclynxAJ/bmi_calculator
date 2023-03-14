@@ -32,6 +32,16 @@ class BMICalculator extends StatelessWidget {
             color: background,
           ),
           shadowColor: shadowColor,
+          iconButtonTheme: IconButtonThemeData(
+            style: IconButton.styleFrom(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
+              ),
+              side: const BorderSide(color: primary),
+              foregroundColor: primary,
+              padding: const EdgeInsets.all(12),
+            ),
+          ),
           elevatedButtonTheme: ElevatedButtonThemeData(
             style: ElevatedButton.styleFrom(
               backgroundColor: primary,

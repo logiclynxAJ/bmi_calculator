@@ -7,6 +7,7 @@ class BmiState extends Equatable {
   final Weight weightUnit;
   final double height, weight;
   final int age;
+  final GlobalKey<State<StatefulWidget>>? key;
 
   const BmiState({
     this.gender = Gender.male,
@@ -15,6 +16,7 @@ class BmiState extends Equatable {
     this.height = 60,
     this.weight = 60,
     this.age = 22,
+    this.key,
   });
 
   BmiState copyWith({
@@ -24,8 +26,10 @@ class BmiState extends Equatable {
     double? height,
     double? weight,
     int? age,
+    GlobalKey<State<StatefulWidget>>? key,
   }) {
     return BmiState(
+      key: key ?? this.key,
       gender: gender ?? this.gender,
       heightUnit: heightUnit ?? this.heightUnit,
       weightUnit: weightUnit ?? this.weightUnit,
@@ -36,8 +40,8 @@ class BmiState extends Equatable {
   }
 
   @override
-  List<Object> get props =>
-      [gender, heightUnit, weightUnit, weight, height, age];
+  List<Object?> get props =>
+      [gender, heightUnit, weightUnit, weight, height, age, key];
 
   String get formattedHeight => heightUnit == Height.inch
       ? formatAsFeetAndInchesAndCms(height)
@@ -59,9 +63,19 @@ class BmiState extends Equatable {
     // calculate BMI
     double bmi = weightInKgs / (heightMeters * heightMeters);
 
-    if (bmi > 30) return 30;
+    return double.parse(bmi.toStringAsFixed(2));
+  }
 
-    return bmi;
+  String get bmiShortMessage {
+    if (bmi < 18.5) {
+      return "Your BMI is $bmi, which is underweight. You may need to gain weight to improve your health.";
+    } else if (bmi >= 18.5 && bmi < 25) {
+      return "Your BMI is $bmi, which is normal. Keep up your healthy habits!";
+    } else if (bmi >= 25 && bmi < 30) {
+      return "Your BMI is $bmi, which is overweight. You may need to lose weight to improve your health.";
+    } else {
+      return "Your BMI is $bmi, which is obese. You may need to lose weight and consult a doctor to improve your health.";
+    }
   }
 
   String get bmiMessage {

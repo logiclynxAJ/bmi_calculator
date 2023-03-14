@@ -42,6 +42,8 @@ dependencies:
   equatable: ^2.0.5
   numberpicker: ^2.1.1
   infinite_listview: ^1.1.0
+  gauge_indicator: ^0.3.3
+  davinci: ^2.0.8
 
 dev_dependencies:
   flutter_test:
