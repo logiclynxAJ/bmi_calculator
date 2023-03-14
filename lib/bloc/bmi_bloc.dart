@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'package:bmi_calculator/common/types.dart';
 import 'package:bmi_calculator/common/utils.dart';
 import 'package:equatable/equatable.dart';

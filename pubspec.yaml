@@ -40,7 +40,6 @@ dependencies:
   flutter_bloc: ^8.1.2
   rxdart: ^0.27.7
   equatable: ^2.0.5
-  numberpicker: ^2.1.1
   infinite_listview: ^1.1.0
   gauge_indicator: ^0.3.3
   davinci: ^2.0.8

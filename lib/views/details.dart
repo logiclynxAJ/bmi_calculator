@@ -1,9 +1,5 @@
-import 'dart:typed_data';
 import 'dart:ui' as ui;
 
-import 'package:bmi_calculator/common/constants/gen/assets.gen.dart';
-import 'package:bmi_calculator/common/router.dart';
-import 'package:bmi_calculator/common/types.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -12,6 +8,9 @@ import 'package:share_plus/share_plus.dart';
 
 import 'package:bmi_calculator/common/constants/colors.dart';
 import 'package:bmi_calculator/common/constants/constants.dart';
+import 'package:bmi_calculator/common/constants/gen/assets.gen.dart';
+import 'package:bmi_calculator/common/router.dart';
+import 'package:bmi_calculator/common/types.dart';
 import 'package:bmi_calculator/common/utils.dart';
 
 final GlobalKey genKey = GlobalKey();
