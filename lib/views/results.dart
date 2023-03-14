@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gauge_indicator/gauge_indicator.dart';
 import 'package:go_router/go_router.dart';
+import 'package:nanoid/nanoid.dart';
 
 import '../bloc/bmi_bloc.dart';
 
@@ -91,7 +92,11 @@ class BMIResults extends StatelessWidget {
                             try {
                               final bloc = context.read<BmiBloc>();
                               if (bloc.state.key != null) {
-                                await DavinciCapture.click(bloc.state.key!);
+                                await DavinciCapture.click(
+                                  bloc.state.key!,
+                                  saveToDevice: false,
+                                  fileName: 'BMI_calculator__${nanoid()}',
+                                );
                               }
                             } catch (e) {
                               log(e.toString());

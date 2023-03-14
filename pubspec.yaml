@@ -44,6 +44,7 @@ dependencies:
   infinite_listview: ^1.1.0
   gauge_indicator: ^0.3.3
   davinci: ^2.0.8
+  nanoid: ^1.0.0
 
 dev_dependencies:
   flutter_test:
