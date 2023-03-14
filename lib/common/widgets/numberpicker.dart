@@ -1,3 +1,4 @@
+import 'package:bmi_calculator/common/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:infinite_listview/infinite_listview.dart';
@@ -201,6 +202,8 @@ class NumberPickerState extends State<NumberPicker> {
               decoration: widget.decoration,
               padding: widget.padding,
               margin: widget.margin,
+              suffix: widget.suffix,
+              textStyle: widget.suffixTextStyle,
             ),
           ],
         ),
@@ -276,6 +279,8 @@ class _NumberPickerSelectedItemDecoration extends StatelessWidget {
   final double itemExtent;
   final Decoration? decoration;
   final EdgeInsetsGeometry? margin, padding;
+  final String? suffix;
+  final TextStyle? textStyle;
 
   const _NumberPickerSelectedItemDecoration({
     Key? key,
@@ -284,18 +289,44 @@ class _NumberPickerSelectedItemDecoration extends StatelessWidget {
     required this.axis,
     required this.itemExtent,
     required this.decoration,
+    this.suffix,
+    this.textStyle,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final themeData = Theme.of(context);
+    final textTheme = textThemeOf(context);
     return Center(
       child: IgnorePointer(
-        child: Container(
-          margin: margin,
-          padding: padding,
-          width: isVertical ? double.infinity : itemExtent,
-          height: isVertical ? itemExtent : double.infinity,
-          decoration: decoration,
+        child: Stack(
+          children: [
+            Align(
+              alignment: Alignment.center,
+              child: Container(
+                margin: margin,
+                padding: padding,
+                width: isVertical ? double.infinity : itemExtent,
+                height: isVertical ? itemExtent : double.infinity,
+                decoration: decoration,
+              ),
+            ),
+            if (suffix != null)
+              Align(
+                alignment: Alignment.centerRight,
+                child: Padding(
+                  padding: const EdgeInsets.only(right: 24),
+                  child: Text(
+                    suffix!,
+                    style: textStyle ??
+                        textTheme.bodyLarge?.copyWith(
+                          fontWeight: FontWeight.bold,
+                          color: themeData.colorScheme.onPrimary,
+                        ),
+                  ),
+                ),
+              ),
+          ],
         ),
       ),
     );

@@ -30,6 +30,7 @@ class BMICalculator extends StatelessWidget {
             surfaceTintColor: background,
             color: background,
           ),
+          shadowColor: shadowColor,
         ),
         builder: (context, child) {
           return GestureDetector(

@@ -9,7 +9,7 @@ class BmiState extends Equatable {
 
   const BmiState({
     this.gender = Gender.male,
-    this.heightUnit = Height.cms,
+    this.heightUnit = Height.fts,
     this.weightUnit = Weight.kgs,
     this.height = 60,
     this.weight = 60,
