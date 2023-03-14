@@ -1,13 +1,9 @@
 import 'package:bmi_calculator/bloc/bmi_bloc.dart';
 import 'package:bmi_calculator/common/constants/colors.dart';
-import 'package:bmi_calculator/common/types.dart';
 import 'package:bmi_calculator/common/utils.dart';
 import 'package:bmi_calculator/common/widgets/gender_selector.dart';
 import 'package:bmi_calculator/common/widgets/height_selector.dart';
-import 'package:bmi_calculator/common/widgets/inch_selector.dart';
-import 'package:bmi_calculator/common/widgets/numberpicker.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeView extends StatelessWidget {
