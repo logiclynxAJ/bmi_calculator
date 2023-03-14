@@ -43,3 +43,27 @@ int convertToFeet(double inches) {
 }
 
 TextTheme textThemeOf(BuildContext context) => Theme.of(context).textTheme;
+
+String describeEnumType(Enum enumEntry) {
+  final String description = enumEntry.toString();
+  final int indexOfDot = description.indexOf('.');
+  assert(
+    indexOfDot != -1 && indexOfDot < description.length - 1,
+    'The provided object "$enumEntry" is not an enum.',
+  );
+  return description.substring(0, indexOfDot);
+}
+
+double convertKgsToLbs(double kgs) {
+  double lbs = kgs * 2.20462;
+  return lbs;
+}
+
+double convertLbsToKgs(double lbs) {
+  double kgs = lbs / 2.20462;
+  return kgs;
+}
+
+extension EnumType on Enum {
+  String get type => describeEnumType(this);
+}

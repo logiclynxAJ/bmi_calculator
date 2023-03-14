@@ -36,3 +36,9 @@ class UpdateWeight extends BmiEvent {
 
   const UpdateWeight(this.value);
 }
+
+class UpdateAge extends BmiEvent {
+  final int age;
+
+  const UpdateAge(this.age);
+}

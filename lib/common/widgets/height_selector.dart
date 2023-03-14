@@ -2,6 +2,7 @@ import 'package:bmi_calculator/bloc/bmi_bloc.dart';
 import 'package:bmi_calculator/common/constants/colors.dart';
 import 'package:bmi_calculator/common/types.dart';
 import 'package:bmi_calculator/common/utils.dart';
+import 'package:bmi_calculator/common/widgets/enum_based_drop_down.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -23,35 +24,24 @@ class HeightSelector extends StatelessWidget {
       elevation: 10,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
       child: AnimatedContainer(
-        height: state.heightUnit == Height.fts ? 280 : 230,
+        height: state.heightUnit == Height.inch ? 280 : 230,
         duration: kThemeAnimationDuration,
         width: double.infinity,
         child: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
-            DropdownButton<Height>(
-              underline: const SizedBox.shrink(),
+            EnumDropDown<Height>(
               value: state.heightUnit,
-              items: const [
-                DropdownMenuItem(
-                  value: Height.fts,
-                  child: Text('Height (inch)'),
-                ),
-                DropdownMenuItem(
-                  value: Height.cms,
-                  child: Text('Height (cms)'),
-                ),
-              ],
               onChanged: (value) {
                 if (value == null) return;
                 context.read<BmiBloc>().add(UpdateHeightUnit(value));
               },
-              style: textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w500),
+              values: Height.values,
             ),
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: state.heightUnit == Height.fts
+                child: state.heightUnit == Height.inch
                     ? InchSelector(
                         state: state,
                         textTheme: textTheme,

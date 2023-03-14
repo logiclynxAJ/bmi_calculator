@@ -1,5 +1,5 @@
 enum Gender { male, female }
 
-enum Height { fts, cms }
+enum Height { inch, cms }
 
 enum Weight { lbs, kgs }

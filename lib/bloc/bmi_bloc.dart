@@ -15,6 +15,7 @@ class BmiBloc extends Bloc<BmiEvent, BmiState> {
     on<UpdateWeightUnit>(_updateWeightUnit);
     on<UpdateHeight>(_updateHeight);
     on<UpdateWeight>(_updateWeight);
+    on<UpdateAge>(_updateAge);
   }
 
   void _updateGender(UpdateGender event, StateEmitter emit) {
@@ -35,5 +36,9 @@ class BmiBloc extends Bloc<BmiEvent, BmiState> {
 
   void _updateHeight(UpdateHeight event, StateEmitter emit) {
     emit(state.copyWith(height: event.value));
+  }
+
+  void _updateAge(UpdateAge event, StateEmitter emit) {
+    emit(state.copyWith(age: event.age));
   }
 }
