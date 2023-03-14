@@ -16,6 +16,7 @@ class BMICalculator extends StatelessWidget {
         routerConfig: routerConfig,
         debugShowCheckedModeBanner: false,
         theme: ThemeData.light(useMaterial3: true).copyWith(
+          scaffoldBackgroundColor: background,
           colorScheme: const ColorScheme.light(
             background: background,
             primary: primary,
@@ -31,6 +32,18 @@ class BMICalculator extends StatelessWidget {
             color: background,
           ),
           shadowColor: shadowColor,
+          elevatedButtonTheme: ElevatedButtonThemeData(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: primary,
+              foregroundColor: Colors.white,
+              padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 24),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16),
+              ),
+              shadowColor: shadowColor,
+              elevation: 5,
+            ),
+          ),
         ),
         builder: (context, child) {
           return GestureDetector(
