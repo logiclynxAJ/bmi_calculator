@@ -91,7 +91,7 @@ class BMIResults extends StatelessWidget {
                                 context.push(Routes.details);
                               },
                               style: ElevatedButton.styleFrom(
-                                fixedSize: Size(constraints.maxWidth / 1.9, 55),
+                                fixedSize: const Size(180, 55),
                               ),
                               child: Row(
                                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -139,7 +139,11 @@ class BMIResults extends StatelessWidget {
                         const SizedBox(width: 24),
                         IconButton(
                           onPressed: () {
-                            context.pop();
+                            if (context.canPop()) {
+                              context.pop();
+                            } else {
+                              context.pushReplacement(Routes.home);
+                            }
                           },
                           icon: const Icon(Icons.refresh),
                         ),

@@ -1,6 +1,7 @@
 import 'package:bmi_calculator/views/details.dart';
 import 'package:bmi_calculator/views/home.dart';
 import 'package:bmi_calculator/views/results.dart';
+import 'package:flutter/foundation.dart';
 import 'package:go_router/go_router.dart';
 
 class Routes {
@@ -14,15 +15,30 @@ final routerConfig = GoRouter(
   routes: [
     GoRoute(
       path: Routes.home,
-      builder: (context, state) => const HomeView(),
+      builder: kIsWeb ? null : (context, state) => const HomeView(),
+      pageBuilder: !kIsWeb
+          ? null
+          : (context, state) {
+              return const NoTransitionPage(child: HomeView());
+            },
     ),
     GoRoute(
       path: Routes.results,
-      builder: (context, state) => const BMIResults(),
+      builder: kIsWeb ? null : (context, state) => const BMIResults(),
+      pageBuilder: !kIsWeb
+          ? null
+          : (context, state) {
+              return const NoTransitionPage(child: BMIResults());
+            },
     ),
     GoRoute(
       path: Routes.details,
-      builder: (context, state) => const Details(),
+      builder: kIsWeb ? null : (context, state) => const Details(),
+      pageBuilder: !kIsWeb
+          ? null
+          : (context, state) {
+              return const NoTransitionPage(child: Details());
+            },
     ),
   ],
 );

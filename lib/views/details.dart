@@ -1,7 +1,9 @@
 import 'dart:typed_data';
 import 'dart:ui' as ui;
 
+import 'package:bmi_calculator/common/router.dart';
 import 'package:bmi_calculator/common/types.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:go_router/go_router.dart';
@@ -50,7 +52,13 @@ class Details extends StatelessWidget {
         leading: Padding(
           padding: const EdgeInsets.only(left: 24),
           child: IconButton(
-            onPressed: () => context.pop(),
+            onPressed: () {
+              if (context.canPop()) {
+                context.pop();
+              } else {
+                context.pushReplacement(Routes.results);
+              }
+            },
             style: IconButton.styleFrom(
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(99),
@@ -64,28 +72,29 @@ class Details extends StatelessWidget {
         ),
         leadingWidth: 70,
         actions: [
-          PopupMenuButton<CShare>(
-            itemBuilder: (context) => const [
-              PopupMenuItem(
-                value: CShare.text,
-                child: Text('Share as text'),
+          if (!kIsWeb)
+            PopupMenuButton<CShare>(
+              itemBuilder: (context) => const [
+                PopupMenuItem(
+                  value: CShare.text,
+                  child: Text('Share as text'),
+                ),
+                PopupMenuItem(
+                  value: CShare.image,
+                  child: Text('Share as image'),
+                ),
+              ],
+              onSelected: (value) async {
+                await captureWidget(value);
+              },
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
               ),
-              PopupMenuItem(
-                value: CShare.image,
-                child: Text('Share as image'),
+              child: const SizedBox.square(
+                dimension: 48,
+                child: Icon(Icons.share),
               ),
-            ],
-            onSelected: (value) async {
-              await captureWidget(value);
-            },
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12),
             ),
-            child: const SizedBox.square(
-              dimension: 48,
-              child: Icon(Icons.share),
-            ),
-          ),
         ],
         iconTheme: const IconThemeData(),
       ),
