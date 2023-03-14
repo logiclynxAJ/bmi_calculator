@@ -16,24 +16,29 @@ class GenderSelector extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        GenderCard(
-          image: Assets.images.male,
-          title: 'Male',
-          onClick: () {
-            context.read<BmiBloc>().add(const UpdateGender(Gender.male));
-          },
-          height: 100,
-          selected: state.gender == Gender.male,
+        Expanded(
+          child: GenderCard(
+            image: Assets.images.male,
+            title: 'Male',
+            onClick: () {
+              context.read<BmiBloc>().add(const UpdateGender(Gender.male));
+            },
+            height: 100,
+            selected: state.gender == Gender.male,
+          ),
         ),
-        GenderCard(
-          image: Assets.images.female,
-          title: 'Female',
-          alignRight: true,
-          height: 150,
-          selected: state.gender == Gender.female,
-          onClick: () {
-            context.read<BmiBloc>().add(const UpdateGender(Gender.female));
-          },
+        const SizedBox(width: 8),
+        Expanded(
+          child: GenderCard(
+            image: Assets.images.female,
+            title: 'Female',
+            alignRight: true,
+            height: 150,
+            selected: state.gender == Gender.female,
+            onClick: () {
+              context.read<BmiBloc>().add(const UpdateGender(Gender.female));
+            },
+          ),
         ),
       ],
     );
