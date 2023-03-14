@@ -99,9 +99,9 @@ class Details extends StatelessWidget {
         ],
         iconTheme: const IconThemeData(),
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24),
-        child: SingleChildScrollView(
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24),
           child: Column(
             children: [
               Container(
