@@ -12,10 +12,11 @@ This is a Flutter application designed to assist users in calculating their Body
 
 ## Features
 
-- Cross platform
-- Supports different metric systems e.g. cms and inches for Height
-- Shows graphical representation of the score as well a brief summary
-- A short article on What is BMI and to use a BMI score
+- Cross-platform compatibility
+- Support for different metric systems (e.g., centimeters and inches) for height measurement
+- Graphical representation of the BMI score
+- Brief summary accompanying the graphical representation
+- Inclusion of a short article explaining BMI and its usage
 
 ## Run Locally
 
