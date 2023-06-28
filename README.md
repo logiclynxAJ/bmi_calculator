@@ -1,6 +1,6 @@
 # BMI Calculator
 
-This is a Flutter project that helps users calculate their BMI (Body Mass Index) and displays it along with a graphical representation. The app prompts the user to enter their height and weight and then calculates their BMI based on the formula (weight / (height \* height)). The user can then view their BMI along with a graphical representation of their BMI range (underweight, normal weight, overweight, or obese). The app also provides a brief explanation of what BMI is and how it is calculated.
+This is a Flutter application designed to assist users in calculating their Body Mass Index (BMI) and presenting it visually. The application requests the user's input for height and weight, and subsequently calculates the BMI using the formula (weight / (height * height)). The user can conveniently observe their BMI value alongside a graphical representation denoting the corresponding BMI range, including classifications such as underweight, normal weight, overweight, or obese. Additionally, the application offers a concise explanation of BMI and its calculation methodology.
 
 ## Screenshots
 
